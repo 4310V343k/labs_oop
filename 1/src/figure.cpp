@@ -8,7 +8,7 @@ void Figure::Draw() {
     _visible = true;
     HBRUSH oldBrush = (HBRUSH)SelectObject(_hdc, GetStockObject(NULL_BRUSH));
     HPEN blackPen = CreatePen(PS_SOLID, 3, RGB(20, 20, 20));
-    HPEN redPen = CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
+    HPEN colorPen = CreatePen(PS_SOLID, 3, _RGB);
     HPEN oldPen = (HPEN)SelectObject(_hdc, blackPen);
 
     // заднее колесо
@@ -17,7 +17,7 @@ void Figure::Draw() {
     Ellipse(_hdc, _x + 50, _y + 20, _x + 80, _y + 50);
 
     // рама от заднего колеса к передней части
-    SelectObject(_hdc, redPen);
+    SelectObject(_hdc, colorPen);
     MoveToEx(_hdc, _x + 15, _y + 35, nullptr);
     LineTo(_hdc, _x + 60, _y + 15);
     LineTo(_hdc, _x + 65, _y + 35); // к колесу
@@ -28,7 +28,7 @@ void Figure::Draw() {
     SelectObject(_hdc, blackPen);
     LineTo(_hdc, _x + 50, _y); // руль
     
-    SelectObject(_hdc, redPen);
+    SelectObject(_hdc, colorPen);
     MoveToEx(_hdc, _x + 33, _y + 25, nullptr);
     LineTo(_hdc, _x + 33, _y + 8); // к сиденью
 
@@ -38,7 +38,7 @@ void Figure::Draw() {
 
     SelectObject(_hdc, oldPen);
     DeleteObject(blackPen);
-    DeleteObject(redPen);
+    DeleteObject(colorPen);
     SelectObject(_hdc, oldBrush);
 }
 

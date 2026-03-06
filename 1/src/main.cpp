@@ -43,5 +43,8 @@ int main() {
 
     figure.Control();
 
+    Point *figure_as_point = &figure;
+    figure_as_point->Control();
+
     return 0;
 }
