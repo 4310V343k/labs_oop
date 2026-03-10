@@ -7,7 +7,5 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(oop1
     src/main.cpp
-    src/location.cpp
-    src/point.cpp
     src/figure.cpp
 )

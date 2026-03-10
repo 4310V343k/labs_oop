@@ -1,5 +1,5 @@
 # base style
-BasedOnStyle: LLVM
+BasedOnStyle: Microsoft
 
 # indent
 IndentWidth: 4
